@@ -1,0 +1,12 @@
+{
+    "buildCommand": "cd client-side && npm install && ./node_modules/vite/bin/vite.js build",
+    "outputDirectory": "client-side/dist",
+    "framework": "vite",
+    "rewrites":[
+        {
+            "source":"/backend/(.*)",
+            "destination": "/backend/index.js"
+        }
+    ]
+
+}
