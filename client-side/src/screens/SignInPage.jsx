@@ -36,7 +36,7 @@ export default function SignInPage() {
                     <input type='password' placeholder='Enter password' value={password} onChange={e => setPassword(e.target.value)}/>
                     <button className="primary">Login</button>
                     <div className="text-center py-4 text-gray-400">
-                          Don't have an account? <Link to={'/signup'} className="text-black"> Register Now </Link>
+                          Don't have an account? <Link to={'/register'} className="text-black"> Register Now </Link>
                     </div>
                 </form>
             </div>
