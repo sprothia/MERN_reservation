@@ -13,6 +13,7 @@ import ReservationsPage from './screens/ReservationsPage';
 import ReservationPage from './screens/ReservationPage';
 import AddRestaurant from './screens/AddRestaurant';
 
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
 axios.defaults.withCredentials = true
 
 function App() {
