@@ -11,7 +11,7 @@ export default function SignUpPage() {
     async function createUser(e) {
         e.preventDefault()
         try {
-            await axios.post('http://localhost:4000/register', {
+            await axios.post('/register', {
                 name, email, password,
             })
     

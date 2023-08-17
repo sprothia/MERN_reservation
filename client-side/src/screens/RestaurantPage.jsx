@@ -21,7 +21,7 @@ export default function RestaurantPage() {
             return;
         }
 
-        axios.get(`http://localhost:4000/restaurants/${id}`).then(response => {
+        axios.get(`/restaurants/${id}`).then(response => {
             setRestaurant(response.data)
         })
 
@@ -29,7 +29,7 @@ export default function RestaurantPage() {
 
 
     async function makeReservation() {
-        const response = await axios.post('http://localhost:4000/reservation',
+        const response = await axios.post('/reservation',
         {dineDate, dineTime, reservationName, phomeNumber, reservationPeople, restaurant: restaurant._id, user: user._id})
         
         const reservationId = response.data._id

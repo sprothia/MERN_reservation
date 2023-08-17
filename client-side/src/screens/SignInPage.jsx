@@ -14,7 +14,7 @@ export default function SignInPage() {
     async function signInUser(e) {
         e.preventDefault()
         try {
-            const {data} = await axios.post('http://127.0.0.1:4000/signin', {email, password})
+            const {data} = await axios.post('/signin', {email, password})
             { /* This returns the UserDoc which is Json response in login of index.js */}
             setUser(data)
             setRedirect(true)

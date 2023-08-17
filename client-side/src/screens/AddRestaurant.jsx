@@ -24,7 +24,7 @@ export default function PlacesFormPage() {
 
         if(name !== '' && address !== '' && photos !== '' && description !== '' && timings !== '' && ratings !== '' && menuItemOne !== '' && menuItemTwo !== '' && menuItemThree !== '' && menuItemFour !== '' && menuItemFive !== '') {
             try {
-                axios.post('http://localhost:4000/places', {
+                axios.post('/places', {
                     name, address, photos, description, timings, ratings, menu_items
                 })
                 setRedirect(true)

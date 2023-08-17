@@ -31,7 +31,7 @@ async function connectToDatabase() {
   
 connectToDatabase()
 
-app.get('/test', (req,res) => {
+app.get('/api/test', (req,res) => {
     res.json('Test Ok')
 })
 
@@ -54,7 +54,7 @@ function getUserData(requ) {
     })
 }
 
-app.post('/register', async (req,res) => {
+app.post('/api/register', async (req,res) => {
     const {name, email, password} = req.body;
 
     try {
@@ -70,7 +70,7 @@ app.post('/register', async (req,res) => {
     
 })
 
-app.post('/signin', async (req,res) => {
+app.post('/api/signin', async (req,res) => {
     const {email, password} = req.body;
     const userDoc = await User.findOne({email})
 
@@ -92,7 +92,7 @@ app.post('/signin', async (req,res) => {
 })
 
 // Verifies JWT, and responds with decoded token data if valid. first line is listening to http get requests to profile endpoint, tokenData in this case is all the user auth info
-app.get('/account', (req, res) => {
+app.get('/api/account', (req, res) => {
     const {token} = req.cookies
     if(token) {
         jsonWebTok.verify(token, jwtSecret, {}, async (err, tokenData) => {
@@ -105,11 +105,11 @@ app.get('/account', (req, res) => {
     }
 })
 
-app.post('/signout', (req, res) => {
+app.post('/api/signout', (req, res) => {
     res.cookie('token', '').json(true)
 })
 
-app.post('/places', async (req,res) => {
+app.post('/api/places', async (req,res) => {
     const {name, address, photos, description, ratings, timings, menu_items} = req.body;
     try {
         const newPlace = await Restaurant.create({
@@ -127,7 +127,7 @@ app.post('/places', async (req,res) => {
     }
 })
 
-app.get('/restaurants', async (req, res) => {
+app.get('/api/restaurants', async (req, res) => {
     try {
         const documents = await Restaurant.find();
         res.json(documents);
@@ -137,7 +137,7 @@ app.get('/restaurants', async (req, res) => {
       }
 })
 
-app.get('/restaurants/:id', async (req, res) => {
+app.get('/api/restaurants/:id', async (req, res) => {
     const {id} = req.params
     try {
         const documents = await Restaurant.findById(id);
@@ -148,11 +148,11 @@ app.get('/restaurants/:id', async (req, res) => {
       }
 })
 
-app.get('/reservation', async (req, res) => {
+app.get('/api/reservation', async (req, res) => {
     res.json( await Reservation.find({user: req.query.userId}).populate('restaurant')) 
 })
 
-app.post('/reservation', async (req, res) => {
+app.post('/api/reservation', async (req, res) => {
     // const userData = await getUserData(req);
     const {restaurant, dineDate, dineTime, reservationName, phomeNumber, reservationPeople, user} = req.body
     Reservation.create({restaurant, dineDate, dineTime, reservationName, phomeNumber, reservationPeople, user}).then((doc) => {

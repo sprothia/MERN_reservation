@@ -24,7 +24,7 @@ export default function ReservationsPage() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:4000/reservation', {params: queryParams}).then(response => {
+        axios.get('/reservation', {params: queryParams}).then(response => {
             setReservations(response.data)
         })
     }, [])

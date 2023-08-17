@@ -10,7 +10,7 @@ export default function Account() {
     const {ready, user, setUser} = useContext(UserContext)
 
     async function signout() {
-        await axios.post('http://127.0.0.1:4000/signout', null)
+        await axios.post('/signout', null)
         setUser(null)
     }
 

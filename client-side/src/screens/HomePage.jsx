@@ -11,7 +11,7 @@ export default function IndexPage() {
    useEffect(() => {
     async function fetchDocuments() {
       try {
-        const response = await axios.get('http://localhost:4000/restaurants');
+        const response = await axios.get('/restaurants');
         setRestaurants(response.data);
       } catch (error) {
         console.error(error);
