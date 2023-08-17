@@ -15,37 +15,13 @@ const Reservation = require('./models/Reservation')
 app.use(express.json())
 app.use(cookieParser())
 
-const allowedOrigins = [
-  'https://mern-reservation-js0ig0ege-sprothia.vercel.app',
-  // Add more origins if needed
-];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
 
 app.use(cors({
     credentials: true,
-    origin: (origin, callback) => {
-    const allowedOrigins = [
-      'http://127.0.0.1:5173',
+    origin: 'http://127.0.0.1:5173',
       'https://mern-reservation.vercel.app/',
       'https://mern-reservation-git-main-sprothia.vercel.app/',
       'https://mern-reservation-js0ig0ege-sprothia.vercel.app/',
-    ];
-
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
 }))
 
 async function connectToDatabase() {
