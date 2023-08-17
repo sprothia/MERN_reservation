@@ -19,9 +19,6 @@ app.use(cookieParser())
 app.use(cors({
     credentials: true,
     origin: 'http://127.0.0.1:5173',
-      'https://mern-reservation.vercel.app/',
-      'https://mern-reservation-git-main-sprothia.vercel.app/',
-      'https://mern-reservation-js0ig0ege-sprothia.vercel.app/',
 }))
 
 async function connectToDatabase() {
