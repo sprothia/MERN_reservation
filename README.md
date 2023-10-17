@@ -8,9 +8,6 @@
 # Website
 - https://mern-reservation.vercel.app/
 
-# Demo
-- [![asciicast](https://github.com/sprothia/AirMouse/blob/main/static/thumbnail.png?raw=True)](https://youtu.be/Sq4yyo_Dz_Y)
-
 
 # Technologies
 - React.js
